@@ -30,11 +30,36 @@
 		<source src="./sounds/first-noel-r&b.mp3" type="audio/mpeg">
 			You here?
 	</audio>
-    
+    <audio  id="pass1l">
+		<source src="./sounds/Pass1l.mp3" type="audio/mpeg">
+			You here?
+	</audio>
+	<audio  id="pass1r">
+		<source src="./sounds/Pass1r.mp3" type="audio/mpeg">
+			You here?
+	</audio>
+	<audio  id="pass2r">
+		<source src="./sounds/Pass2r.mp3" type="audio/mpeg">
+			You here?
+	</audio>
+	<audio  id="pass3r">
+		<source src="./sounds/Pass3r.mp3" type="audio/mpeg">
+			You here?
+	</audio>
+	<audio  id="partners">
+		<source src="./sounds/Partners.mp3" type="audio/mpeg">
+			You here?
+	</audio>
     
   </body>
   <script>
   	var bgmusic = document.getElementById("bgmusic");
+  	var pass1l = document.getElementById("pass1l");
+  	var pass1r = document.getElementById("pass1r");
+  	var pass2r = document.getElementById("pass2r");
+  	var pass3r = document.getElementById("pass3r");
+  	var partners = document.getElementById("partners");
+  	function randomFrom(array) {return array[Math.floor(Math.random() * array.length)];}
   	function StartMusic(){
   		console.log("StartMusic");
   		bgmusic.play();
@@ -45,22 +70,30 @@
   	}
   	  	function RandomPlay(){
   		console.log("RandomPlay");
+  		var func = randomFrom([Pass1r, Pass2r, Partners, Pass1l, Pass3r]);
+  		(func)();
+  		
+  		
   	}
   	  	function Pass1r(){
   		console.log("Pass1r");
-  		
+  		pass1r.play();
   	}
   	  	function Pass2r(){
   		console.log("Pass2r");
+  		pass2r.play();
   	}
   	  	function Partners(){
   		console.log("Partners");
+  		partners.play();
   	}
   	  	function Pass1l(){
   		console.log("Pass1l");
+  		pass1l.play();
   	}
   	  	function Pass3r(){
   		console.log("Pass3r");
+  		pass3r.play();
   	}
   	
   </script>
