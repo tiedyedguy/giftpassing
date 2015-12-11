@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Giftpassing by tiedyedguy</title>
     	<!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<!-- Optional theme -->
@@ -15,19 +16,54 @@
   <body>
   	<div class="well">
 	<button type="button" class="btn btn-primary" onClick="StartMusic()">Start Music</button><br><br>
-	<button type="button" class="btn btn-primary" onClick="EndMusic()">End Music</button><br><br>
-	<button type="button" class="btn btn-primary" onClick="StartMusic()">Random</button><br><br>
-	<button type="button" class="btn btn-primary" onClick="StartMusic()">Pass 1 Right</button><br><br>
-	<button type="button" class="btn btn-primary" onClick="StartMusic()">Pass 2 Right</button><br><br>
-	<button type="button" class="btn btn-primary" onClick="StartMusic()">Partners</button><br><br>
-	<button type="button" class="btn btn-primary" onClick="StartMusic()">Pass 1 Left</button><br><br>
-	<button type="button" class="btn btn-primary" onClick="StartMusic()">Pass 3 Right</button><br><br>
+	<button type="button" class="btn btn-primary" onClick="PauseMusic()">Pause Music</button><br><br>
+	<button type="button" class="btn btn-primary" onClick="RandomPlay()">Random</button><br><br>
+	<button type="button" class="btn btn-primary" onClick="Pass1r()">Pass 1 Right</button><br><br>
+	<button type="button" class="btn btn-primary" onClick="Pass2r()">Pass 2 Right</button><br><br>
+	<button type="button" class="btn btn-primary" onClick="Partners()">Partners</button><br><br>
+	<button type="button" class="btn btn-primary" onClick="Pass1l()">Pass 1 Left</button><br><br>
+	<button type="button" class="btn btn-primary" onClick="Pass3r()">Pass 3 Right</button><br><br>
  		</div>
 
 
+	<audio loop id="bgmusic">
+		<source src="./sounds/first-noel-r&b.mp3" type="audio/mpeg">
+			You here?
+	</audio>
     
     
   </body>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+  	var bgmusic = document.getElementById("bgmusic");
+  	function StartMusic(){
+  		console.log("StartMusic");
+  		bgmusic.play();
+  	}
+  	  	function PauseMusic(){
+  		console.log("PauseMusic");
+  		bgmusic.pause();
+  	}
+  	  	function RandomPlay(){
+  		console.log("RandomPlay");
+  	}
+  	  	function Pass1r(){
+  		console.log("Pass1r");
+  		
+  	}
+  	  	function Pass2r(){
+  		console.log("Pass2r");
+  	}
+  	  	function Partners(){
+  		console.log("Partners");
+  	}
+  	  	function Pass1l(){
+  		console.log("Pass1l");
+  	}
+  	  	function Pass3r(){
+  		console.log("Pass3r");
+  	}
+  	
+  </script>
+      
 </html>
 
