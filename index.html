@@ -67,6 +67,7 @@
   	var pass3r = document.getElementById("pass3r");
   	var partners = document.getElementById("partners");
   	var w = null; // initialize variable
+  	var playedalready = false;
   	
   	// function to start the timer
 	function startTimer()
@@ -81,10 +82,17 @@
 	      w.onmessage = function (event) {
 	         document.getElementById("timer").innerHTML = event.data;
 	         var times = event.data.split(":");
-	         if (parseInt(times[1])%30 == 0)
+	         if ((parseInt(times[1])%30 == 0) && !playedalready)
 	         {
 	         	RandomPlay();
+	         	playedalready = true
 	         }
+	         if (parseInt(times[1])%30 == 5)
+	         {
+	         	playedalready = false;
+	         }
+	         
+	         
 	      };
 	   } else {
 	      // Web workers are not supported by your browser
