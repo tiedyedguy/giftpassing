@@ -42,6 +42,15 @@
 		  <option value="no">no</option>
 	  	</select>
 	</div>
+	<div>
+		 <div >Stop (Minutes)?:</div>
+	 	<select id="ddlStop">
+		  <option value="2" selected="selected">2</option>
+		  <option value="5">5</option>
+		  <option value="10">10</option>
+		  <option value="20">20</option>
+	  	</select>
+	</div>
  		
  		
 
@@ -86,6 +95,8 @@
   	var pass2r = document.getElementById("pass2r");
   	var pass3r = document.getElementById("pass3r");
   	var partners = document.getElementById("partners");
+  	var ddlinterval = document.getElementById("ddlInterval");
+  	var ddlpartner = document.getElementById("ddlPartner");
   	var w = null; // initialize variable
   	var playedalready = false;
   	
@@ -102,12 +113,12 @@
 	      w.onmessage = function (event) {
 	         document.getElementById("timer").innerHTML = event.data;
 	         var times = event.data.split(":");
-	         if ((parseInt(times[1])%30 == 0) && !playedalready)
+	         if ((parseInt(times[1])%parseInt(ddlinterval.value) == 0) && !playedalready)
 	         {
 	         	RandomPlay();
 	         	playedalready = true
 	         }
-	         if (parseInt(times[1])%30 == 5)
+	         if (parseInt(times[1])%parseInt(ddlinterval.value) == 5)
 	         {
 	         	playedalready = false;
 	         }
