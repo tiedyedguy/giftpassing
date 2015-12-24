@@ -105,12 +105,12 @@
 	         document.getElementById("timer").innerHTML = event.data;
 	         
 	         var times = event.data.split(":");
-	         if ((parseInt(times[1])%30 == 0) && !playedalready)
+	         if ((parseInt(times[1])%parseInt(ddlinterval.value) == 0) && !playedalready)
 	         {
 	         	RandomPlay();
 	         	playedalready = true
 	         }
-	         if (parseInt(times[1])%30 == 5)
+	         if (parseInt(times[1])%parseInt(ddlinterval.value) == 5)
 	         {
 	         	playedalready = false;
 	         }
