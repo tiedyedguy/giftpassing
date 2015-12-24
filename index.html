@@ -25,23 +25,7 @@
 	<button type="button" class="btn btn-primary" onClick="Pass3r()">Pass 3 Right</button><br><br>
  		</div>
    <div>
- <div >Interval Choice:</div>
- 	<select id="ddlInterval">
-  <option value="10">10</option>
-  <option value="15">15</option>
-  <option value="20">20</option>
-  <option value="30">30</option>
-  <option value="60">60</option>
-	</select>
-	</div>
-   
-     <div>
- <div >Partners?:</div>
- 	<select id="ddlPartner">
-  <option value="yes">yes</option>
-  <option value="no">no</option>
-  	</select>
-	</div>
+
    
    <div class="header">Passing Timer:</div>
 
@@ -98,10 +82,11 @@
 	      }
 	      // Update timer div with output from Web Worker
 	      w.onmessage = function (event) {
-	      	var e = document.getElementById("ddlPartner");
-		var strPartner = e.options[e.selectedIndex].value;
-		var f = document.getElementById("ddlInterval");
-		var iInterval = parseInt(f.options[f.selectedIndex].value);
+	  //    	var e = document.getElementById("ddlPartner");
+	//	var strPartner = e.options[e.selectedIndex].value;
+		var strPartner = "yes";
+	//	var f = document.getElementById("ddlInterval");
+	//	var iInterval = parseInt(f.options[f.selectedIndex].value);
 	      	
 	      	
 	         document.getElementById("timer").innerHTML = event.data;
