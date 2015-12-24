@@ -101,7 +101,12 @@
 	      // Update timer div with output from Web Worker
 	      w.onmessage = function (event) {
 	         document.getElementById("timer").innerHTML = event.data;
-	         var times = event.data.split(":");
+	        var e = document.getElementById("ddlPartner");
+ -		var strPartner = e.options[e.selectedIndex].value;
+ -		var f = document.getElementById("ddlInterval");
+ -		var iInterval = parseInt(f.options[f.selectedIndex].value);
+	        
+	        var times = event.data.split(":");
 	         if ((parseInt(times[1])%30 == 0) && !playedalready)
 	         {
 	         	RandomPlay();
