@@ -35,6 +35,16 @@
 	</select>
 	</div>
    
+    	<div>
+ 	 <div >Stop Minutes:</div>
+ 	<select id="ddlStop">
+	  <option value="2">2</option>
+	  <option value="5">5</option>
+	  <option value="10" selected="selected">10</option>
+	  <option value="15">15</option>
+	</select>
+	</div>
+   
      <div>
 	 <div >Partners?:</div>
 	 	<select id="ddlPartner">
@@ -88,12 +98,14 @@
   	var partners = document.getElementById("partners");
   	var ddlpartner = document.getElementById("ddlPartner")
   	var ddlinterval = document.getElementById("ddlInterval")
+  	var ddstop = document.getElementById("ddlStop")
   	var w = null; // initialize variable
   	var playedalready = false;
   	
   	// function to start the timer
 	function startTimer()
 	{
+	   StartMusic();
 	   // First check whether Web Workers are supported
 	   if (typeof(Worker)!=="undefined"){
 	      // Check whether Web Worker has been created. If not, create a new Web Worker based on the Javascript file simple-timer.js
@@ -121,6 +133,11 @@
 	         if (parseInt(times[1])%parseInt(ddlinterval.value) == 5)
 	         {
 	         	playedalready = false;
+	         }
+	         if (parseInt(times[0]) == parseInt(ddstop.value))
+	         {
+	         	stopTimer();
+	         	PauseMusic();
 	         }
 	         
 	         
