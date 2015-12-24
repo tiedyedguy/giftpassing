@@ -80,6 +80,11 @@ function startTimer()
       // Update timer div with output from Web Worker
       w.onmessage = function (event) {
          document.getElementById("timer").innerHTML = event.data;
+         var times = event.data.split(":");
+         if (parseInt(times[1])%30 == 0)
+         {
+         	RandomPlay();
+         }
       };
    } else {
       // Web workers are not supported by your browser
