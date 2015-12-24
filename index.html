@@ -24,12 +24,10 @@
 	<button type="button" class="btn btn-primary" onClick="Pass1l()">Pass 1 Left</button><br><br>
 	<button type="button" class="btn btn-primary" onClick="Pass3r()">Pass 3 Right</button><br><br>
  		</div>
-   
 
-   
    <div class="header">Passing Timer:</div>
 
-   <div class="timer" id="timer">00:00</div> 
+   <div class="timer" id="timer">05:00</div> 
    <div class="buttons">
       <button onclick="startTimer()" id="button1">Start</button>
       <button onclick="stopTimer()" id = "button2">Stop</button>
@@ -82,29 +80,14 @@
 	      }
 	      // Update timer div with output from Web Worker
 	      w.onmessage = function (event) {
-	  //    	var e = document.getElementById("ddlPartner");
-	//	var strPartner = e.options[e.selectedIndex].value;
-		var strPartner = "yes";
-	//	var f = document.getElementById("ddlInterval");
-	//	var iInterval = parseInt(f.options[f.selectedIndex].value);
-	      	
-	      	
 	         document.getElementById("timer").innerHTML = event.data;
 	         var times = event.data.split(":");
-	         if ((parseInt(times[1])%20 == 0) && !playedalready)
+	         if ((parseInt(times[1])%30 == 0) && !playedalready)
 	         {
-	         	if (strPartner == "yes")
-	         	{
-	         		RandomPlay();
-	         	}
-	         	else
-	         	{
-	         		RandomPlayNoPartner();	
-	         	}
-	         	}
+	         	RandomPlay();
 	         	playedalready = true
 	         }
-	         if (parseInt(times[1])%20 == 5)
+	         if (parseInt(times[1])%30 == 5)
 	         {
 	         	playedalready = false;
 	         }
@@ -124,7 +107,6 @@
 	   timerStart = true;
 	   w = null;
 	}
-
   	function randomFrom(array) {return array[Math.floor(Math.random() * array.length)];}
   	function StartMusic(){
   		console.log("StartMusic");
@@ -141,15 +123,6 @@
   		
   		
   	}
-  	  	function RandomPlayNoPartner(){
-  		console.log("RandomPlay");
-  		var func = randomFrom([Pass1r, Pass2r, Pass1l, Pass3r]);
-  		(func)();
-  		
-  		
-  	}
-  	
-  	
   	  	function Pass1r(){
   		console.log("Pass1r");
   		pass1r.play();
