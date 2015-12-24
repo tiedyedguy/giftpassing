@@ -99,6 +99,7 @@
   	var ddlpartner = document.getElementById("ddlPartner");
   	var ddlstop = document.getElementById("ddlStop");
   	var w = null; // initialize variable
+  	 var times = null;
   	var playedalready = false;
   	
   	// function to start the timer
@@ -114,7 +115,7 @@
 	      // Update timer div with output from Web Worker
 	      w.onmessage = function (event) {
 	         document.getElementById("timer").innerHTML = event.data;
-	         var times = event.data.split(":");
+	         times = event.data.split(":");
 	         if ((parseInt(times[1])%parseInt(ddlinterval.value) == 0) && !playedalready)
 	         {
 	         	if (ddlpartner.value == "yes")
